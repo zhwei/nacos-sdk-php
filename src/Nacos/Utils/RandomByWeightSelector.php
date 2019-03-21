@@ -9,7 +9,7 @@ class RandomByWeightSelector
     /**
      * 权重+随机选择 instance
      *
-     * @param ServiceInstance[] $instances 列表中数æ组数据结构参照当前目录 readme.md
+     * @param ServiceInstance[] $instances
      * @return ServiceInstance
      * @throws \Exception
      */
