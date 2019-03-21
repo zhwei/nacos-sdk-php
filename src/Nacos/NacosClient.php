@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 use Nacos\Exceptions\NacosConfigNotFound;
+use Nacos\Exceptions\NacosNamingNotFound;
 use Nacos\Exceptions\NacosRequestException;
 use Nacos\Models\BeatInfo;
 use Nacos\Models\BeatResult;
@@ -289,8 +290,19 @@ class NacosClient
             'healthyOnly' => $healthyOnly,
         ]);
 
-        $resp = $this->request('GET', '/nacos/v1/ns/instance/list', ['query' => $query]);
+        $resp = $this->request('GET', '/nacos/v1/ns/instance/list', [
+            'http_errors' => false,
+            'query' => $query,
+        ]);
         $data = json_decode($resp->getBody(), JSON_OBJECT_AS_ARRAY);
+
+        if (404 === $resp->getStatusCode()) {
+            throw new NacosNamingNotFound(
+                "service not found: $serviceName",
+                404
+            );
+        }
+
         return new ServiceInstanceList($data);
     }
 

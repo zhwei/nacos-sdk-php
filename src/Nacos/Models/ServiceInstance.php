@@ -167,7 +167,7 @@ class ServiceInstance
 
     public function getWeightDouble()
     {
-        return $this->weight ? doubleval($this->weight) : null;
+        return $this->weight ? doubleval($this->weight) : 0;
     }
 
     protected function filter(array $array)
