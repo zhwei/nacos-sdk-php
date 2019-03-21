@@ -1,0 +1,31 @@
+{
+    "name": "zhwei/nacos-sdk-php",
+    "description": "Nacos PHP Client",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "zhwei",
+            "email": "zhwei.yes@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Nacos\\": "src/Nacos"
+        }
+    },
+    "require-dev": {
+        "ext-pcntl": "*",
+        "phpunit/phpunit": "^6.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nacos\\Tests\\": "tests"
+        }
+    }
+}
