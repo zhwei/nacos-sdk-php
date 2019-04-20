@@ -27,4 +27,12 @@ class NacosNaming
 
         return RandomByWeightSelector::select($list->hosts);
     }
+
+    /**
+     * @return NacosClient
+     */
+    public function getClient(): NacosClient
+    {
+        return $this->client;
+    }
 }

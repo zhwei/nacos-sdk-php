@@ -1,5 +1,6 @@
 {
     "name": "zhwei/nacos-sdk-php",
+    "version": "1.0.1",
     "description": "Nacos PHP Client",
     "type": "library",
     "license": "MIT",

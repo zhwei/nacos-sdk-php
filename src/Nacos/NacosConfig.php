@@ -42,4 +42,12 @@ class NacosConfig
 
         throw new NacosException('Unsupported config format');
     }
+
+    /**
+     * @return NacosClient
+     */
+    public function getClient(): NacosClient
+    {
+        return $this->client;
+    }
 }
